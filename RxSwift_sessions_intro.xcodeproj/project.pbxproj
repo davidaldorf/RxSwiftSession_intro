@@ -85,7 +85,6 @@
 				986C822130C92387D1A7D0F2 /* Pods-RxSwift_sessions_intro.debug.xcconfig */,
 				B3EC67D30F94054B5E1A4559 /* Pods-RxSwift_sessions_intro.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

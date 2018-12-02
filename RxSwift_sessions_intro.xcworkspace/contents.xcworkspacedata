@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RxIntroPlayground.playground">
+   </FileRef>
+   <FileRef
       location = "group:RxSwift_sessions_intro.xcodeproj">
    </FileRef>
    <FileRef
