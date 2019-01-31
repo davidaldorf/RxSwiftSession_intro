@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RxOperatorsIntro.playground">
+   </FileRef>
+   <FileRef
       location = "group:RxIntroPlayground.playground">
    </FileRef>
    <FileRef
