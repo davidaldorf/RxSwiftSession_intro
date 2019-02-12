@@ -81,34 +81,12 @@ example(of: "zip") {
 example(of: "combineLatest") {
     let disposeBag = DisposeBag()
     
-    let stringSubject = PublishSubject<String>()
-    let intSubject = PublishSubject<Int>()
-    
-    Observable.combineLatest(stringSubject, intSubject) { stringElement, intElement in
-        "\(stringElement) \(intElement)"
-        }
-        .subscribe(onNext: { print($0) })
-        .disposed(by: disposeBag)
-    
-    stringSubject.onNext("🅰️")
-    
-    stringSubject.onNext("🅱️")
-    intSubject.onNext(1)
-    
-    intSubject.onNext(2)
-    
-    stringSubject.onNext("🆎")
-}
-//: There is also a variant of `combineLatest` that takes an `Array` (or any other collection of `Observable` sequences):
-example(of: "Array.combineLatest") {
-    let disposeBag = DisposeBag()
-    
     let stringObservable = Observable.just("❤️")
     let fruitObservable = Observable.from(["🍎", "🍐", "🍊"])
     let animalObservable = Observable.of("🐶", "🐱", "🐭", "🐹")
     
-    Observable.combineLatest([stringObservable, fruitObservable, animalObservable]) {
-        "\($0[0]) \($0[1]) \($0[2])"
+    Observable.combineLatest(stringObservable, fruitObservable, animalObservable) {
+        "\($0) \($1) \($2)"
         }
         .subscribe(onNext: { print($0) })
         .disposed(by: disposeBag)
