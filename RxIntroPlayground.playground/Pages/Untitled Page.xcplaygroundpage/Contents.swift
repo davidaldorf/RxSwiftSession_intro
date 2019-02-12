@@ -39,6 +39,7 @@ example(of: "empty") {
         print(event)
     }
 }
+
 // MARK: - Other way to create an observable (observableError)
 //example(of: "Observable with error") {
 //    let example = Observable<Int>.create { observer in

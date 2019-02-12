@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='5.0' target-platform='ios' executeOnSourceChanges='false'>
-    <timeline fileName='timeline.xctimeline'/>
+<playground version='6.0' target-platform='ios' display-mode='rendered' executeOnSourceChanges='false'>
+    <pages>
+        <page name='Recap'/>
+        <page name='Filtering and Conditional Operators'/>
+        <page name='Transformation Operators'/>
+        <page name='Combination Operators'/>
+    </pages>
 </playground>
