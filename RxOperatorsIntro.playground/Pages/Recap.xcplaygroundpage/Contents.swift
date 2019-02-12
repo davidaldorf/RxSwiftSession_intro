@@ -10,7 +10,7 @@ import Pods_RxSwift_sessions_intro
 let disposeBag = DisposeBag()
 
 enum ExampleError: Error {
-    case rx
+    case WTF
 }
 
 let one = 1
@@ -19,11 +19,22 @@ let three = 3
 let error = ExampleError.rx
 let observableError = Observable<Any>.error(error)
 
+/*:
+ ----
+ ## `Creating Observables`
+ Suppresses emitting the specified number of elements from the beginning of an `Observable` sequence.
+ */
+
 example(of: "just, of, from") {
     
     let observableJust: Observable<Int> = Observable<Int>.just(one)
     let observableOf = Observable.of(one, two, three)
     let observableFrom = Observable.from([one, two, three, observableError])
+    
+    let observable = Observable.create { observer -> Disposable in
+        
+        
+    }
 }
 
 example(of: "Subscribe to events") {
