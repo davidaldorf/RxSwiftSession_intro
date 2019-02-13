@@ -69,7 +69,11 @@ example(of: "Subscribe to events") {
     }
 }
 
-// debug()
+
+/*:
+ ----
+ ## `Debugging Observable`
+ */
 example(of: "debug()") {
     
     let debugObservable = Observable.of(one, two, three)
