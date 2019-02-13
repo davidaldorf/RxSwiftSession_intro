@@ -1,6 +1,9 @@
 //: [Previous](@previous)
 
 import RxSwift
+
+let disposeBag = DisposeBag()
+
 /*:
  # Combination Operators
  Operators that combine multiple source `Observable`s into a single `Observable`.
@@ -51,44 +54,43 @@ example(of: "merge") {
  ## `zip`
  Combines up to 8 source `Observable` sequences into a single new `Observable` sequence, and will emit from the combined `Observable` sequence the elements from each of the source `Observable` sequences at the corresponding index.
  */
-example(of: "zip") {
-    let disposeBag = DisposeBag()
-    
-    let stringSubject = PublishSubject<String>()
-    let intSubject = PublishSubject<Int>()
-    
-    Observable.zip(stringSubject, intSubject) { stringElement, intElement in
-        "\(stringElement) \(intElement)"
-        }
-        .subscribe(onNext: { print($0) })
-        .disposed(by: disposeBag)
-    
-    stringSubject.onNext("🅰️")
-    stringSubject.onNext("🅱️")
-    
-    intSubject.onNext(1)
-    
-    intSubject.onNext(2)
-    
-    stringSubject.onNext("🆎")
-    intSubject.onNext(3)
-}
+//example(of: "zip") {
+//    let catObservable = Observable<NSInteger>
+//        .interval(0.5, scheduler: MainScheduler.instance)
+//        .take(5)
+//        .debug("🐱")
+//
+//    let dogObservable = Observable<NSInteger>
+//        .interval(0.3, scheduler: MainScheduler.instance)
+//        .take(5)
+//        .debug("🐶")
+//    
+//    Observable.zip(catObservable, dogObservable)
+//        .subscribe(onNext: { (cat, dog) in
+//            print("🐱: \(cat) 🐶: \(dog)")
+//        })
+//        .disposed(by: disposeBag)
+//}
 /*:
  ----
  ## `combineLatest`
  Combines up to 8 source `Observable` sequences into a single new `Observable` sequence, and will begin emitting from the combined `Observable` sequence the latest elements of each source `Observable` sequence once all source sequences have emitted at least one element, and also when any of the source `Observable` sequences emits a new element.
  */
 example(of: "combineLatest") {
-    let disposeBag = DisposeBag()
-    
-    let stringObservable = Observable.just("❤️")
-    let fruitObservable = Observable.from(["🍎", "🍐", "🍊"])
-    let animalObservable = Observable.of("🐶", "🐱", "🐭", "🐹")
-    
-    Observable.combineLatest(stringObservable, fruitObservable, animalObservable) {
-        "\($0) \($1) \($2)"
-        }
-        .subscribe(onNext: { print($0) })
+    let catObservable = Observable<NSInteger>
+        .interval(0.5, scheduler: MainScheduler.instance)
+        .take(5)
+        .debug("🐱")
+
+    let dogObservable = Observable<NSInteger>
+        .interval(0.3, scheduler: MainScheduler.instance)
+        .take(5)
+        .debug("🐶")
+
+    Observable.combineLatest(catObservable, dogObservable)
+        .subscribe(onNext: { (cat, dog) in
+            print("🐱: \(cat) 🐶: \(dog)")
+        })
         .disposed(by: disposeBag)
 }
 
